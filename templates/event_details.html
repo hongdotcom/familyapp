@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block title %} {{ event.name }} - {{ block.super }}
+{% endblock %} {% block breadcrumb %}
+<li class="breadcrumb-item"><a href="{% url 'home' %}">Family Event</a></li>
+<li class="breadcrumb-item active">{{ event.name }}</li>
+{% endblock %} {% block content %}
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Supply Needed</th>
+      <th>Quantity</th>
+      <th>Prepared By</th>
+      <th>Description</th>
+      <th>Location</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in supply %}
+    <tr>
+      <td>{{item.name}}</td>
+      <td class="align-middle">{{ item.quanity }}</td>
+      <td class="align-middle">{{ item.prepared }}</td>
+      <td class="align-middle">{{ item.description }}</td>
+      <td class="align-middle">{{ item.location }}</td>
+      <td class="align-middle">{{ item.status }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block breadcrumb %}
+<li class="breadcrumb-item active">Family Events</li>
+
+{% endblock %} {% block content %}
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Event</th>
+      <th>Supply Needed</th>
+      <th>Last Supply Added</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for event in events %}
+    <tr>
+      <td>
+        <a href=" {% url 'event_details' event.pk %}">{{event.name}}</a>
+        <small class="text-muted d-block">{{ event.description }}</small>
+      </td>
+      <td class="align-middle">0</td>
+      <td class="align-middle">0</td>
+      <td class="align-middle">{{event.eventdate}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+
+  {% endblock %}
+</table>
